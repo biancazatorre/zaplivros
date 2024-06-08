@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="../static/CSS/main.css">
     <script src="../Script/script.js"></script>
     <title>Cadastro de Funcionário</title>
-</head>
-
-<body>
     <script>
         function validarSenha() {
             var senha = document.getElementById("senha").value;
@@ -25,7 +22,9 @@
             return true;
         }
     </script>
+</head>
 
+<body>
     <header>
         <nav>
             <h1>ZapLivros</h1>
@@ -66,17 +65,27 @@
             </div>
             <div id="direita">
                 <h4>Quadro de funcionários</h4>
-                <tbody>
-                    <tr th:each="fun : ${lista}">
-                        <td th:text="${fun.id}"></td>
-                        <td th:text="${fun.nome}"></td>
-                        <td>
-                            <a th:href="@{'dadosFunc/' + ${fun.id}}">
-                                Editar
-                            </a>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="fun : ${lista}">
+                            <td th:text="${fun.id}"></td>
+                            <td th:text="${fun.nome}"></td>
+                            <td>
+                                <a th:href="@{'dadosFunc/' + ${fun.id}}">Editar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </nav>
-
+    </main>
 </body>
 
 </html>
