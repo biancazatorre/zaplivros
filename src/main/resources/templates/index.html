@@ -1,85 +1,173 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-BR">
 
 <head>
-    <title>
-        Principal
-    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Site</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" href="../static/imagens/icon.png">
+    <link href="../static/CSS/styles.css" rel="stylesheet">
+    <script src="../static/Script/script.js"></script>
 </head>
 
 <body>
-    <h1>
-        INTRODUÇÃO
-        No âmbito do desenvolvimento tecnológico voltado para a inclusão, o
-        transtorno do espectro autista (TEA) emerge como uma área de especial importância.
-        O TEA é uma condição neurológica que afeta a comunicação, o comportamento social
-        e a interação interpessoal. Indivíduos com TEA frequentemente enfrentam desafios
-        significativos na expressão de suas necessidades, sentimentos e pensamentos, o que
-        reforça a necessidade de soluções inovadoras e acessíveis para facilitar a
-        comunicação e a interação.
-        Nesse contexto, propõe-se o desenvolvimento de um aplicativo de
-        comunicação alternativa aumentativa (CAA) destinado a atender às necessidades
-        específicas de indivíduos com TEA. Este aplicativo oferecerá uma plataforma digital
-        abrangente e adaptável, projetada para auxiliar na comunicação e expressão de
-        pessoas com dificuldades de comunicação verbal decorrentes do TEA.
-        Além de fornecer recursos de comunicação por meio de imagens, o aplicativo
-        incluirá a funcionalidade de criação de quadros de rotina personalizados, uma
-        ferramenta crucial para indivíduos com TEA que se beneficiam de rotinas estruturadas
-        e previsíveis. Esses quadros de rotina poderão ser personalizados com imagens reais
-        do ambiente cotidiano do usuário, promovendo assim uma maior compreensão e
-        adesão às atividades diárias.
-        Por meio deste projeto tecnológico, pretende-se não apenas abordar as
-        dificuldades de comunicação enfrentadas por indivíduos com TEA, mas também
-        promover sua autonomia, independência e inclusão social. Ao combinar tecnologia
-        avançada com uma abordagem centrada no usuário, aspiramos a oferecer uma
-        solução inovadora e eficaz que contribua significativamente para a qualidade de vida
-        e o bem-estar desses indivíduos.
-        4
-        2 OBJETIVOS
-         Nesta seção serão apresentados o objetivo geral e específico do trabalho.
-        2.1 OBJETIVO GERAL
-        Criar um aplicativo para auxiliar e desenvolver a comunicação de pessoas
-        autistas, visando melhorar sua interação social e autonomia.
-        2.2 OBJETIVOS ESPECÍFICOS
-        Identificar as principais dificuldades de comunicação enfrentadas por pessoas
-        autistas:
-        a. Realizar uma revisão bibliográfica sobre as dificuldades de comunicação
-        em pessoas autistas.
-        b. Conduzir entrevistas com especialistas em autismo, como psicólogos,
-        terapeutas ocupacionais e fonoaudiólogos.
-        c. Aplicar questionários a cuidadores e familiares de pessoas autistas para
-        compreender as barreiras de comunicação mais comuns.
-        Analisar as funcionalidades e características de aplicativos existentes que
-        visam auxiliar na comunicação de pessoas com autismo:
-        a. Revisar a literatura sobre aplicativos de comunicação para pessoas com
-        autismo.
-        b. Avaliar aplicativos disponíveis no mercado, destacando pontos fortes e
-        fracos.
-        c. Identificar lacunas nos aplicativos existentes que o novo aplicativo
-        poderá preencher.
-        5
-        Definir os requisitos funcionais e não funcionais do aplicativo:
-        a. Requisitos Funcionais: Determinar as funcionalidades essenciais que o
-        aplicativo deve oferecer, como:
-         Suporte a símbolos visuais e voz sintetizada.
-         Opções de personalização para adaptar às necessidades
-        individuais dos usuários.
-         Ferramentas de comunicação, como botões para expressar
-        necessidades básicas e emoções.
-        b. Requisitos Não Funcionais: Estabelecer critérios de qualidade e
-        desempenho, tais como:
-         Usabilidade: Interface intuitiva e fácil de usar.
-         Desempenho: Tempo de resposta rápido.
-         Segurança: Proteção de dados pessoais dos usuários.
-         Compatibilidade: Funcionar em diferentes dispositivos e sistemas operacionais.
-        Modelagem da Solução:
-        a. Casos de Uso: Descrição detalhada das interações dos usuários com o
-        sistema, incluindo diagramas de casos de uso.
-        b. Modelagem de Dados: Criação de diagramas de entidaderelacionamento (ER) e definição da estrutura do banco de dados.
-        Desenvolver um protótipo funcional do aplicativo, incorporando as funcionalidades definidas:
-        a. Utilizar uma plataforma de desenvolvimento adequada para criar o protótipo do aplicativo.
-        b. Integrar funcionalidades como símbolos visuais, voz sintetizada, e opções de personalização.
-        c. Realizar testes internos para identificar e corrigir bugs.
-    </h1>
+    <header>
+        <a th:href="@{/main}"><img src="../static/imagens/logo.png" id="logo" alt="Logo da Empresa"></a>
+        <div id="buscar">
+            <input type="search" id="busca" placeholder="Buscar livros">
+            <input type="button" id="botao" value="Buscar">
+        </div>
+
+    </header>
+
+
+
+
+
+
+    <nav class="menu-lateral">
+
+        <div class="expandir">
+            <i class="bi bi-list"></i>
+        </div>
+
+        <ul>
+            <li class="item-menu">
+                <a href="#">
+                    <span class="icon"><i class="bi bi-house-door"></i></span>
+                    <span class="txt-link">Home</span>
+                </a>
+            </li>
+
+            <li id="drop-hover" class="item-menu">
+                <a href="#">
+                    <span class="icon"><i class="bi bi-journal-bookmark-fill"></i></span>
+                    <span class="txt-link">Categorias <i class="bi bi-caret-down-fill"></i></span>
+                </a>
+                <div class="drop">
+                    <a href="#">Romance</a>
+                    <a href="#">Filosofia</a>
+                    <a href="#">Infantil</a>
+                </div>
+            </li>
+
+            <li class="item-menu">
+                <a href="#endereco">
+                    <span class="icon"><i class="bi bi-geo-alt"></i></span>
+                    <span class="txt-link">Endereços</span>
+                </a>
+            </li>
+
+            <li class="item-menu">
+                <a href="../templates/funcionario/logado.html">
+                    <span class="icon"><i class="bi bi-person"></i></span>
+                    <span class="txt-link"> Cadastro</span>
+                </a>
+            </li>
+            <br><br><br><br>
+            <li class="item-menu">
+                <a href="https://www.instagram.com/zaplivros/">
+                    <span class="icon"><i class="bi bi-instagram"></i></span>
+                    <span class="txt-link">Instagram</span>
+                </a>
+            </li>
+
+            <li class="item-menu">
+                <a href="https://bit.ly/2pm8kjV">
+                    <span class="icon"><i class="bi bi-whatsapp"></i></span>
+                    <span class="txt-link">Whatsapp</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <div id="capa">
+            <img src="../static/imagens/capa.png" alt="livros novos toda semana">
+        </div>
+        <h1>Livros</h1>
+        <div class="linhalivro">
+            <div class="livro">
+                <img src="../static/imagens/Livros 20 reais/jane-austen.jpg" alt="Nome do Livro">
+                <p>Descrição do Livro</p>
+            </div>
+            <div class="livro">
+                <img src="../static/imagens/Livros 20 reais/anne-frank.jpg" alt="Nome do Livro">
+                <p>Descrição do Livro</p>
+            </div>
+            <div class="livro">
+                <img src="../static/imagens/Livros 20 reais/revolucao-dos-bichos.jpg" alt="Nome do Livro">
+                <p>Descrição do Livro</p>
+            </div>
+        </div>
+        <div class="linhalivro">
+            <div class="livro">
+                <img src="../static/imagens/Livros 20 reais/ruiva-popstar.jpg" alt="Nome do Livro">
+                <p>Descrição do Livro</p>
+            </div>
+            <div class="livro">
+                <img src="../static/imagens/Livros 20 reais/caminho-samurai.jpg" alt="Nome do Livro">
+                <p>Descrição do Livro</p>
+            </div>
+            <div class="livro">
+                <img src="../static/imagens/Livros 10 reais/IMG_20240520_210328.jpg" alt="Nome do Livro">
+                <p>Descrição do Livro</p>
+            </div>
+        </div>
+        <div class="linhalivro">
+            <div class="livro">
+                <img src="../static/imagens/Livros 10 reais/IMG_20240520_210424.jpg" alt="Nome do Livro">
+                <p>Descrição do Livro</p>
+            </div>
+            <div class="livro">
+                <img src="../static/imagens/Livros 10 reais/IMG_20240520_210811.jpg" alt="Nome do Livro">
+                <p>Descrição do Livro</p>
+            </div>
+            <div class="livro">
+                <img src="../static/imagens/Livros 20 reais/arte-da-guerra.jpg" alt="Nome do Livro">
+                <p>Descrição do Livro</p>
+            </div>
+        </div>
+        <!-- Adicione mais livros conforme necessário -->
+
+        <section id="endereco">
+            <h1>Endereços</h1>
+            <div class="santos">
+                <h3>Santos</h3>
+                <i class="bi bi-geo-alt"></i>
+                <span> Shopping Iporanga - Ana Costa, 465 - Santos - Gonzaga</span> <br><br>
+
+                <i class="bi bi-geo-alt"></i>
+                <span> Shopping Praiamar - Rua Alexandre Martins, 80 -
+                    Aparecida</span> <br><br>
+
+                <i class="bi bi-geo-alt"></i>
+                <span> Shopping Balneário - Ana Costa, 549 - Gonzaga</span>
+
+            </div>
+
+
+
+            <h3>São Vicente</h3>
+            <div class="são vicente">
+                <i class="bi bi-geo-alt"></i>
+                <span>Shopping Brisamar - R. Frei Gaspar, 365 - Centro</span>
+            </div>
+            <h3>Guarujá</h3>
+            <div class="guaruja">
+                <i class="bi bi-geo-alt"></i>
+                <span>Shopping Guarujá Center - R. Mario Ribeiro, 357 - Centro</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p> ZAP Livros &#169; Todos os direitos reservados</p>
+
+    </footer>
+
 </body>
 
 </html>
