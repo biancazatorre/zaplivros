@@ -21,6 +21,16 @@ public class IndexController {
     @Autowired
     private FuncionarioService funcionarioService;
 
+    @GetMapping("/")
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
+    public String index(){
+        return "index";
+    }
+
+
     @GetMapping("/admin")
     public String admin() {
         return "admin";
