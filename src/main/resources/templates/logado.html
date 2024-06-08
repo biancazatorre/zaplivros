@@ -13,7 +13,7 @@
         <nav>
             <h1>ZapLivros</h1>
             <div id="lateral">
-                <p id="user">Teste</p> | <a id="deslogar" href="main.html">Logout</a>
+                <p id="user">Teste</p> | <a id="deslogar" th:href="@{/admin}">Logout</a>
             </div>
         </nav>
     </header>
@@ -24,7 +24,7 @@
         </div>
         <h3>Tela Principal</h3>
         <nav id="cadastros">
-            <a href="cadastrofuncionario.html">
+            <a th:href="@{/Cadastro}">
                 <p id="telaprincipal">Cadastro de Funcionários</p>
             </a>
             <a href="cadastrolivro.html">
