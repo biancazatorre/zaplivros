@@ -11,19 +11,20 @@ body{
 }
 h1{
     font-size: 3rem;
-    color: white;
+    color: #f6de00;
     margin-left: 20px;
 }
 h2{
     font-size: 2rem;
     margin-bottom: 20px;
+    color: #f6de00;
 }
 header{
     background-color: black;
 }
 #main {
-    border: 1px solid black;
-    background-color: #D9D9D9;
+    border: 1px solid #f6de00;
+    background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,13 +36,16 @@ header{
 }
 #botao {
     text-decoration: none;
-    border: solid 1px #696969;
-    color: white;
-    background-color: #696969;
+    border: solid 1px white;
+    color: black;
+    background-color: #f6de00;
     padding: 10px 20px;
     border-radius: 20   px;
     display: inline-block;
     text-align: center;
+}
+#main label{
+    color: #f6de00;
 }
 /* logado.html*/
 header nav {
@@ -95,8 +99,9 @@ h3{
     margin-left: 15px;
 }
 #usuario, #funcao, #voltar{
-    border: 1px solid black;
-    background-color: #AAAAAA;
+    border: 1px solid #f6de00;
+    background-color: black;
+    color: #f6de00;
     width: 157px;
     height: 30px;
     justify-content: center;
@@ -112,9 +117,10 @@ h3{
     justify-content: center;
     font-size: 1.2rem;
 }
-#telaprincipal {
-    border: 1px solid black;
-    background-color: #AAAAAA;
+.telaprincipal {
+    border: 1px solid #f6de00;
+    background-color: black;
+    color: #f6de00;
     width: 315px;
     height: 65px;
     justify-content: center;
@@ -159,12 +165,14 @@ h3{
     align-items: center;
     margin-bottom: 5px;
 }
-#submit, #button, #button2, #button3{
+#submit, #button, #button2, #button3, #buscalivro{
     margin-top: 15px;
     max-width: fit-content;
+    border: solid 1px #f6de00;
+    padding: 3px;
     background-color: black;
-    color: white;
-    border-radius: 25%;
+    color: #f6de00;
+    border-radius: 15%;
 }
 #esquerda label input, #esquerda label select, #esquerda label textarea {
     margin-left: 10px;
