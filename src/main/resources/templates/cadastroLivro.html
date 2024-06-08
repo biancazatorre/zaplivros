@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Lista de Livros</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>ZapLivros</h1>
+            <div id="lateral">
+                <p id="user">Teste</p> | <a id="deslogar" href="main.html">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="cima2">
+            <div id="cima">
+                <p id="usuario">Fulano</p>
+                <p id="funcao">Peão</p>
+            </div>
+            <a href="logado.html">
+                <p id="voltar">Voltar</p>
+            </a>
+        </div>
+        <h3>Cadastro de livros</h3>
+        <form action="" method="post" id="buscadelivro">
+            <input type="text" name="buscalivro" id="buscarlivros">
+            <input type="submit" value="Buscar">
+        </form>
+        <br>
+        <br>
+        <a href="atualizalivro.html" id="addlivro">+ Adicionar Livro</a>
+        <br>
+        <table id="tabela-livros">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Preço</th>
+                    <th>Autor</th>
+                    <th>Gênero</th>
+                    <th>Editora</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alice no país das maravilhas</td>
+                    <td>R$20,00</td>
+                    <td>Lewis Carroll</td>
+                    <td>Fantasia</td>
+                    <td>LaFonte</td>
+                    <td>Alice no país das maravilhas é um clássico que...</td>
+                    <td><a href="atualizalivro.html">✏️</a></td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+
+</html>

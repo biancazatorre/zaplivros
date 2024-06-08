@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Cadastro de Livro</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>ZapLivros</h1>
+            <div id="lateral">
+                <p id="user">Teste</p> | <a id="deslogar" href="main.html">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="cima2">
+            <div id="cima">
+                <p id="usuario">Fulano</p>
+                <p id="funcao">Peão</p>
+            </div>
+            <a href="cadastrolivro.html">
+                <p id="voltar">Voltar</p>
+            </a>
+        </div>
+        <h3>Cadastro de livros > Modificar item</h3>
+        <p id="titulo">Alice no País das Maravilhas</p>
+        <div id="livro">
+            <form method="post" action="">
+                <label for="nome"> Nome do livro:</label>
+                <input type="text" name="nome" id="nome">
+                <label for="autor">Autor:</label>
+                <input type="text" name="text" id="text">
+                <label for="editora">Editora:</label>
+                <input type="text" name="editora" id="editora">
+                <label for="genero">Gênero:</label>
+                <input type="text" name="genero" id="genero">
+                <label for="sinopse">Sinopse:</label>
+                <textarea id="sinopse" name="sinopse" rows="4" cols="117"></textarea>
+                <p>Valor:</p>
+                <label for="valor_10">
+                    <input type="radio" id="valor_10" name="valor" value="valor_10" required> R$10,00
+                </label>
+                <label for="valor_20">
+                    <input type="radio" id="valor_20" name="valor" value="valor_20" required> R$20,00
+                </label>
+                <p id="add">Adicionar foto</p>
+                <input type="submit" value="Clique aqui para adicionar uma foto" id="foto">
+                <input type="submit" value="Adicionar foto" id="button2">
+                <p id="remove">- Remover Livro</p>
+                <input type="submit" id="button3" value="Atualizar">
+
+            </form>
+        </div>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ptbr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Dados do Funcionário</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>ZapLivros</h1>
+            <div id="lateral">
+                <p id="user">Teste</p> | <a id="deslogar" href="main.html">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="cima2">
+            <div id="cima">
+                <p id="usuario">Fulano</p>
+                <p id="funcao">Peão</p>
+            </div>
+            <a href="cadastrofuncionario.html">
+                <p id="voltar">Voltar</p>
+            </a>
+        </div>
+        <h3>Cadastrar Funcionário > Funcionario n</h3>
+        <h4>Dados do Funcionário</h4>
+        <div id="recadastro">
+            <form method="post" th:action="@{/alterarFuncionario}">
+                <input type="hidden" th:field="*{id}" />
+                <label for="nome">Nome:</label>
+                <input type="text" th:field="*{nome}" id="nome">
+                <label for="documento">CPF:</label>
+                <input type="text" th:field="*{cpf}" id="documento">
+                <label for="email">E-mail:</label>
+                <input type="email" th:field="*{email}" id="email">
+                <label for="fone">Telefone:</label>
+                <input type="tel" th:field="*{telefone}" id="fone">
+                <label for="senha">Senha:</label>
+                <input type="password" th:field="*{senha}" id="senha">
+                <input type="submit" id="button" value="Atualizar">
+            </form>
+        </div>
+        <a id="deleteLink" href="#" th:onclick="'confirmDelete(\'' + ${funcionario.id} + '\')';">Deletar Conta?</a>
+
+        <script>
+            function confirmDelete(id) {
+                if (confirm("Confirma a exclusão dos dados deste funcionário?")) {
+                    window.location.href = "/deletarFuncionario?id=" + id;
+                }
+            }
+        </script>
+</body>
+
+</html>

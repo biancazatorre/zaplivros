@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ptbr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Cadastro de Funcionário</title>
+</head>
+
+<body>
+    <script>
+        function validarSenha() {
+            var senha = document.getElementById("senha").value;
+            var confirmarSenha = document.getElementById("confirmarSenha").value;
+
+            if (senha !== confirmarSenha) {
+                alert("As senhas não correspondem. Por favor, insira senhas iguais nos dois campos.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+    <header>
+        <nav>
+            <h1>ZapLivros</h1>
+            <div id="lateral">
+                <p id="user">Teste</p> | <a id="deslogar" href="main.html">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="cima2">
+            <div id="cima">
+                <p id="usuario">Fulano</p>
+                <p id="funcao">Peão</p>
+            </div>
+            <a href="logado.html">
+                <p id="voltar">Voltar</p>
+            </a>
+        </div>
+        <h3>Cadastrar Funcionário</h3>
+        <nav id="dupla">
+            <div id="esquerda">
+                <form onsubmit="return validarSenha();" action="/cadastroFuncionario" method="post">
+                    <h4>Cadastrar</h4>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome">
+                    <label for="administrador">Administrador?</label>
+                    <input type="checkbox" id="administrador" name="administrador">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha">
+                    <label for="confirmarSenha">Confirmar Senha:</label>
+                    <input type="password" id="confirmarSenha" name="confirmarSenha">
+                    <input type="submit" id="submit" value="Enviar">
+                </form>
+            </div>
+            <div id="direita">
+                <h4>Quadro de funcionários</h4>
+                <div th:each="funcionario : ${lista}">
+                    <div>
+                        <p th:text="${funcionario.nome}"></p>
+                        <a th:href="@{'/editarFuncionario?id=' + ${funcionario.id}}">alterar</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+</body>
+
+</html>

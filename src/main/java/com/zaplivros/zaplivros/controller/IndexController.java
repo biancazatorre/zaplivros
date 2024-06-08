@@ -32,6 +32,11 @@ public class IndexController {
         return "admin";
     }
 
+    @GetMapping("/logado")
+    public String logado() {
+        return "logado";
+    }
+
     @GetMapping("/cadastroFuncionario")
     public String cadastroFuncionario(Model model) {
         model.addAttribute("funcionario", new Funcionario());
