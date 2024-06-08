@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,10 @@ public class IndexController {
 
     @Autowired
     private FuncionarioService funcionarioService;
+
+    @Autowired
+	private ApplicationContext context;
+
 
     @GetMapping("/")
     public String index(){
@@ -55,17 +60,22 @@ public class IndexController {
     @GetMapping("/cadastrarFuncionario")
     public String cadastrarFuncionario(Model model) {
         model.addAttribute("funcionario", new Funcionario());
-        List<Map<String, Object>> funcionarios = funcionarioService.listarFuncionario();
-        model.addAttribute("lista", funcionarios);
         return "cadastroFuncionario";
     }
 
     @PostMapping("/cadastrarFuncionario")
-    public String cadastrarFuncionario(@ModelAttribute Funcionario fun,
-            @RequestParam("administrador") boolean administrador) {
-        fun.setCargo(administrador);
+    public String cadastrarFuncionario(Model model, @ModelAttribute Funcionario fun){
+        FuncionarioService fs = context.getBean(FuncionarioService.class);
         funcionarioService.inserirFuncionario(fun);
         return "redirect:/cadastroFuncionario";
+    }
+
+    @GetMapping("/listar")
+    public String listar(Model model){
+        FuncionarioService fs = context.getBean(FuncionarioService.class);
+        List<Map<String,Object>> lista = fs.listarFuncionario();
+        model.addAttribute("lista",lista);
+        return "listar";
     }
 
     @GetMapping("/editarFuncionario")

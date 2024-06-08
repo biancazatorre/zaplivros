@@ -60,7 +60,8 @@ public class FuncionarioDAO {
 
     public void deletarFuncionario(int id) {
         String sql = "DELETE FROM funcionario WHERE id = ?";
-        Object[] obj = new Object[]{id};
+        Object[] obj = new Object[1];
+        obj[0] = id;
         jdbc.update(sql, obj);
     }
 
