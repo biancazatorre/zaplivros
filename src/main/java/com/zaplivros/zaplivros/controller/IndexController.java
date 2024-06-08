@@ -41,7 +41,11 @@ public class IndexController {
     public String cadastroFuncionario() {
         return "cadastroFuncionario";
     }
-    
+
+    @GetMapping("/cadastroLivro")
+    public String cadastroLivro() {
+        return "cadastroLivro";
+    }    
 
     @GetMapping("/cadastrarFuncionario")
     public String cadastrarFuncionario(Model model) {
