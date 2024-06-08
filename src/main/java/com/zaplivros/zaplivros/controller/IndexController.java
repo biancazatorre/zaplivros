@@ -22,10 +22,6 @@ public class IndexController {
     private FuncionarioService funcionarioService;
 
     @GetMapping("/")
-    public String getMethodName(@RequestParam String param) {
-        return new String();
-    }
-    
     public String index(){
         return "index";
     }
