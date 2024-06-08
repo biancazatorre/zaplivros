@@ -1,0 +1,21 @@
+server:
+    port: 8080
+
+spring:
+    datasource:
+        url: jdbc:postgresql://dpg-cph19puct0pc73a27hmg-a.oregon-postgres.render.com/zaplivrosbd
+        driver-class-name: org.postgresql.Driver
+        username: zaplivros
+        password: 9yWmvAcE9IoIk8E9jt44G05odfaF0jbp
+        initialize: true
+        
+    jpa: 
+        hibernate:
+            ddl-auto: create-drop
+            generate-ddl: true
+
+    sql:
+        init:
+            schema-locations: classpath:/schema-postgresql.sql
+            mode: always
+            platform: postgres
