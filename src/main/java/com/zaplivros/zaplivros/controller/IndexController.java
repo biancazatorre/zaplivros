@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,23 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.zaplivros.zaplivros.model.Funcionario;
 import com.zaplivros.zaplivros.model.FuncionarioService;
 
-
 @Controller
-@ComponentScan("com.zaplivros.zaplivros.model")
 public class IndexController {
 
     @Autowired
     private FuncionarioService funcionarioService;
 
-    @Autowired
-	private ApplicationContext context;
-
-
     @GetMapping("/")
     public String index(){
         return "index";
     }
-
 
     @GetMapping("/admin")
     public String admin() {
@@ -66,18 +57,15 @@ public class IndexController {
     }
 
     @PostMapping("/cadastrarFuncionario")
-    public String cadastrarFuncionario(Model model, @ModelAttribute Funcionario fun){
-        FuncionarioService fs = context.getBean(FuncionarioService.class);
+    public String cadastrarFuncionario(@ModelAttribute Funcionario fun){
         funcionarioService.inserirFuncionario(fun);
         return "redirect:/cadastroFuncionario";
     }
 
-
     @GetMapping("/listar")
     public String listar(Model model){
-        FuncionarioService fs = context.getBean(FuncionarioService.class);
-        List<Map<String,Object>> lista = fs.listarFuncionario();
-        model.addAttribute("lista",lista);
+        List<Map<String,Object>> lista = funcionarioService.listarFuncionario();
+        model.addAttribute("lista", lista);
         return "listar";
     }
 
@@ -98,12 +86,12 @@ public class IndexController {
                 .orElse(null);
         model.addAttribute("funcionario", funcionario);
         model.addAttribute("lista", funcionarios);
-        return "dadosFunc"; // Redireciona para a página de dadosFunc.html para edição
+        return "dadosFunc";
     }
 
     @PostMapping("/alterarFuncionario")
     public String alterarFuncionario(@ModelAttribute Funcionario fun,
-            @RequestParam("administrador") boolean administrador) {
+                                     @RequestParam("administrador") boolean administrador) {
         fun.setCargo(administrador);
         funcionarioService.alterarFuncionario(fun);
         return "redirect:/cadastroFuncionario";
