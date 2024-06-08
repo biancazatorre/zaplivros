@@ -45,7 +45,12 @@ public class IndexController {
     @GetMapping("/cadastroLivro")
     public String cadastroLivro() {
         return "cadastroLivro";
-    }    
+    }
+
+    @GetMapping("/atualizaLivro")
+    public String atualizaLivro() {
+        return "atualizaLivro";
+    }
 
     @GetMapping("/cadastrarFuncionario")
     public String cadastrarFuncionario(Model model) {
