@@ -37,22 +37,22 @@ public class IndexController {
         return "logado";
     }
 
-    @GetMapping("/cadastro")
+    @GetMapping("/cadastroFuncionario")
     public String cadastroFuncionario() {
         return "cadastroFuncionario";
     }
     
 
-    @GetMapping("/cadastroFuncionario")
-    public String cadastroFuncionario(Model model) {
+    @GetMapping("/cadastrarFuncionario")
+    public String cadastrarFuncionario(Model model) {
         model.addAttribute("funcionario", new Funcionario());
         List<Map<String, Object>> funcionarios = funcionarioService.listarFuncionario();
         model.addAttribute("lista", funcionarios);
         return "cadastroFuncionario";
     }
 
-    @PostMapping("/cadastroFuncionario")
-    public String cadastroFuncionario(@ModelAttribute Funcionario fun,
+    @PostMapping("/cadastrarFuncionario")
+    public String cadastrarFuncionario(@ModelAttribute Funcionario fun,
             @RequestParam("administrador") boolean administrador) {
         fun.setCargo(administrador);
         funcionarioService.inserirFuncionario(fun);
