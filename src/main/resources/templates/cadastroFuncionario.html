@@ -66,12 +66,14 @@
             </div>
             <div id="direita">
                 <h4>Quadro de funcionários</h4>
-                <div th:each="funcionario : ${lista}">
-                    <div>
-                        <p th:text="${funcionario.nome}"></p>
-                        <a th:href="@{'/editarFuncionario?id=' + ${funcionario.id}}">alterar</a>
-                    </div>
-                </div>
+                <tbody>
+                    <tr th:each="fun : ${lista}">
+                        <td th:text="${fun.id}"></td>
+                        <td th:text="${fun.nome}"></td>
+                        <td>
+                            <a th:href="@{'dadosFunc/' + ${fun.id}}">
+                                Editar
+                            </a>
             </div>
         </nav>
 

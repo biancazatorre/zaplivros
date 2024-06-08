@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import com.zaplivros.zaplivros.model.FuncionarioService;
 
 
 @Controller
+@ComponentScan("com.zaplivros.zaplivros.model")
 public class IndexController {
 
     @Autowired
@@ -69,6 +71,7 @@ public class IndexController {
         funcionarioService.inserirFuncionario(fun);
         return "redirect:/cadastroFuncionario";
     }
+
 
     @GetMapping("/listar")
     public String listar(Model model){
