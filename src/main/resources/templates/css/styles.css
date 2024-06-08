@@ -1,0 +1,198 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+
+nav.menu-lateral{
+    width: 100px;
+    height: 100%;
+    background-color: #000000;
+    padding: 20px 0 20px 0;
+    box-shadow: 3px 0 0 #f6de00;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: .2s;
+}
+
+nav.menu-lateral:hover{
+    width: 300px;
+
+}
+
+.expandir{
+    width: 100%;    
+    padding-left: 45px;
+}
+
+.expandir > i{
+    color: #f6de00;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+
+ul li.item-menu{
+    transition: .2s;
+}
+
+ul li.item-menu :hover{
+    background: #f6de00;
+    color: #000000;
+}
+
+ul li.item-menu a :hover{
+    color: #000000;
+}
+
+ul li.item-menu a{
+    color: #f6de00;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 15px;
+    line-height: 40px; /*Pra alinhar a palavra com o icone*/
+}
+
+ul li.item-menu a .txt-link{
+    margin-left: 20px; 
+}
+
+ul li.item-menu a .icon > i{
+    font-size: 1.4rem;
+    margin-right: 30px;
+    
+}
+
+#drop-hover{
+    position: relative;
+}
+
+#drop-hover .drop{
+   background-color: #000000;
+   color: #f6de00;
+   height: 0;
+   overflow: hidden;
+   transition: 0.2s;
+}
+
+#drop-hover .drop a{
+    padding: 5x;
+}
+
+#drop-hover:hover .drop{
+height: 280px;
+}
+
+main {
+    margin-left: 320px;
+    /* Largura do nav + espaço de margem */
+    padding: 20px;
+}
+
+#logo {
+    margin-left: 300px;
+    width: 30%;
+    height: auto;
+}
+
+
+#busca {
+    width: 300px;
+    padding: 8px;
+    margin-right: 5px; /* Espaçamento entre o input e o botão */  
+}
+
+#botao{
+    color: black ;
+    background-color: #f6de00;
+    width: 25%;
+    padding: 8px;
+    border-radius: 5px;
+    
+}
+
+#botao:hover{
+    color: #f6de00;
+    background-color: #000000;
+    border-color: #f6de00;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    /* Centraliza verticalmente */
+}
+
+#buscar {
+    margin-left: 100px;
+    
+    /* Move o div buscar para a direita */
+    display: flex;
+    align-items: center;
+    /* Centraliza verticalmente */
+}
+
+h1,h2 {
+    text-align: center;
+}
+
+li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+li a:hover {
+    color: purple;
+    text-decoration: underline;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+
+#capa{
+    width: 100%;
+    margin-left: 10px;
+}
+.linhalivro {
+    display: flex;
+}
+
+.livro {
+    flex: 1;
+    /* Faz com que as divs ocupem o mesmo espaço */
+    margin: 5px;
+    /* Espaçamento entre as divs */
+    border: 1px solid #222;
+    border-radius: 5px;
+    /* Adiciona uma borda sólida de 1px com cor cinza */
+    padding: 10px;
+    text-align: center;
+    /* Adiciona um preenchimento interno de 10px */
+}
+.livro img{
+    width: 80%;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
