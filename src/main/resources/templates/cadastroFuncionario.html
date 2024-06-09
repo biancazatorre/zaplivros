@@ -64,7 +64,6 @@
                 </form>
             </div>
             <div id="direita">
-                <a th:href="@{/listar}">Lista</a>
                 <h4>Quadro de funcionários</h4>
                 <table>
                     <thead>
@@ -79,7 +78,7 @@
                             <td th:text="${fun.id}"></td>
                             <td th:text="${fun.nome}"></td>
                             <td>
-                                <a th:href="@{'dadosFunc/' + ${fun.id}}">Editar</a>
+                                <a th:href="@{'atualizar/' + ${fun.id}}">Editar</a>
                             </td>
                         </tr>
                     </tbody>
