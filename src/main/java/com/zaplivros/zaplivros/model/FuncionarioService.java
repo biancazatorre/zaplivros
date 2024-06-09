@@ -10,25 +10,25 @@ import org.springframework.stereotype.Service;
 public class FuncionarioService {
 
     @Autowired
-    FuncionarioDAO cdao;
+    private FuncionarioDAO funcionarioDAO;
 
     public void inserirFuncionario(Funcionario fun) {
-        cdao.inserirFuncionario(fun);
+        funcionarioDAO.inserirFuncionario(fun);
     }
 
     public List<Map<String, Object>> listarFuncionario() {
-        return cdao.listarFuncionario();
+        return funcionarioDAO.listarFuncionario();
     }
 
     public List<Map<String, Object>> obterFuncionario(int id) {
-        return cdao.obterFuncionario(id);
+        return funcionarioDAO.obterFuncionario(id);
     }
 
     public void alterarFuncionario(int id, Funcionario fun) {
-        cdao.alterarFuncionario(id, fun);
+        funcionarioDAO.alterarFuncionario(id, fun);
     }
 
     public void deletarFuncionario(int id) {
-        cdao.deletarFuncionario(id);
+        funcionarioDAO.deletarFuncionario(id);
     }
 }

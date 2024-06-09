@@ -13,18 +13,21 @@
         function validarSenha() {
             var senha = document.getElementById("senha").value;
             var confirmarSenha = document.getElementById("confirmarSenha").value;
+
             if (senha !== confirmarSenha) {
                 alert("As senhas não correspondem. Por favor, insira senhas iguais nos dois campos.");
                 return false;
             }
+
             return true;
         }
         function confirmDelete(id) {
             if (confirm("Confirma a exclusão dos dados deste funcionário?")) {
-                window.location.href = "/deletar/" + id;
+                document.getElementById('deleteForm').submit();
             }
         }
     </script>
+
 </head>
 
 <body>
@@ -63,8 +66,8 @@
                 <input type="submit" id="button" value="Alterar">
             </form>
         </div>
-        <form th:action="@{'/deletar/' + ${funcionario.id}}" method="post">
-            <input type="submit" value="Apagar">
+        <form id="deleteForm" th:action="@{'/deletar/' + ${funcionario.id}}" method="post">
+            <input type="button" value="Apagar" onclick="confirmDelete()">
         </form>
     </main>
 </body>
