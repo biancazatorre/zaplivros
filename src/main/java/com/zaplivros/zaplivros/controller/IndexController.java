@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,13 +17,14 @@ import com.zaplivros.zaplivros.model.Funcionario;
 import com.zaplivros.zaplivros.model.FuncionarioService;
 
 @Controller
+@ComponentScan("com.zaplivros.zaplivros.model")
 public class IndexController {
 
     @Autowired
     private FuncionarioService funcionarioService;
 
     @GetMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 
@@ -35,14 +38,9 @@ public class IndexController {
         return "logado";
     }
 
-//    @GetMapping("/cadastroFuncionario")
-//    public String cadastroFuncionario() {
-//        return "cadastroFuncionario";
-//    }
-
     @GetMapping("/cadastroFuncionario")
-    public String listar(Model model){
-        List<Map<String,Object>> lista = funcionarioService.listarFuncionario();
+    public String listar(Model model) {
+        List<Map<String, Object>> lista = funcionarioService.listarFuncionario();
         model.addAttribute("lista", lista);
         return "cadastroFuncionario";
     }
@@ -64,43 +62,27 @@ public class IndexController {
     }
 
     @PostMapping("/cadastrarFuncionario")
-    public String cadastrarFuncionario(@ModelAttribute Funcionario fun){
+    public String cadastrarFuncionario(@ModelAttribute Funcionario fun) {
         funcionarioService.inserirFuncionario(fun);
         return "redirect:/cadastroFuncionario";
     }
 
-//    @GetMapping("/listar")
-//    public String listar(Model model){
-//        List<Map<String,Object>> lista = funcionarioService.listarFuncionario();
-//        model.addAttribute("lista", lista);
-//        return "listar";
-//    }
-
-    @GetMapping("/editarFuncionario")
-    public String editarFuncionario(@RequestParam("id") int id, Model model) {
-        List<Map<String, Object>> funcionarios = funcionarioService.listarFuncionario();
-        Funcionario funcionario = funcionarios.stream()
-                .filter(map -> (Integer) map.get("id") == id)
-                .map(map -> new Funcionario(
-                        (Integer) map.get("id"),
-                        (String) map.get("nome"),
-                        (String) map.get("cpf"),
-                        (String) map.get("email"),
-                        (String) map.get("telefone"),
-                        (String) map.get("senha"),
-                        (Boolean) map.get("cargo")))
-                .findFirst()
-                .orElse(null);
-        model.addAttribute("funcionario", funcionario);
-        model.addAttribute("lista", funcionarios);
+    @GetMapping("/alterarFuncionario/{id}")
+    public String alterarFuncionario(@PathVariable("id") int id, Model model) {
+        Map<String, Object> funcionario = funcionarioService.obterFuncionario(id).get(0);
+        String nome = (String) funcionario.get("nome");
+        String cpf = (String) funcionario.get("cpf");
+        String email = (String) funcionario.get("email");
+        String telefone = (String) funcionario.get("telefone");
+        String senha = (String) funcionario.get("senha");
+        boolean cargo = (boolean) funcionario.get("cargo");
+        model.addAttribute("funcionario", new Funcionario(id, nome, cpf, email, telefone, senha, cargo));
         return "dadosFunc";
     }
 
-    @PostMapping("/alterarFuncionario")
-    public String alterarFuncionario(@ModelAttribute Funcionario fun,
-                                     @RequestParam("administrador") boolean administrador) {
-        fun.setCargo(administrador);
-        funcionarioService.alterarFuncionario(fun);
+    @PostMapping("/alterarFuncionario/{id}")
+    public String alterarFuncionario(@PathVariable("id") int id, @ModelAttribute Funcionario fun) {
+        funcionarioService.alterarFuncionario(id, fun);
         return "redirect:/cadastroFuncionario";
     }
 

@@ -51,17 +51,21 @@ public class FuncionarioDAO {
 		return jdbc.queryForList(sql, obj);
 	}
 
-    public void alterarFuncionario(Funcionario fun){
-        String sql = "UPDATE funcionario SET nome = ?, cpf = ?, email = ?, telefone = ?, senha = ?, cargo = ? WHERE id = ?";
+    public void alterarFuncionario(int id, Funcionario fun){
+        String sql = "UPDATE funcionario SET nome = ?,"+
+                    "cpf = ?,"+
+                    "email = ?,"+
+                    "telefone = ?,"+
+                    "senha = ?,"+
+                    "cargo = ? WHERE id = ?";
         Object[] obj = new Object[7];
-    
         obj[0] = fun.getNome();
         obj[1] = fun.getCpf();
         obj[2] = fun.getEmail();
         obj[3] = fun.getTelefone();
         obj[4] = fun.getSenha();
         obj[5] = fun.getCargo();
-        obj[6] = fun.getId();
+        obj[6] = id;
         jdbc.update(sql, obj);
     }
 

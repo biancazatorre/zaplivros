@@ -24,8 +24,8 @@ public class FuncionarioService {
 		return cdao.obterFuncionario(id);
 	}
 
-    public void alterarFuncionario(Funcionario fun) {
-        cdao.alterarFuncionario(fun);
+    public void alterarFuncionario(int id, Funcionario fun) {
+        cdao.alterarFuncionario(id, fun);
     }
 
     public void deletarFuncionario(int id) {
