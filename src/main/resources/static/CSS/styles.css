@@ -196,3 +196,16 @@ footer {
     padding: 20px;
     text-align: center;
 }
+.sinopse {
+    display: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.livro:hover .sinopse {
+    display: block;
+}
