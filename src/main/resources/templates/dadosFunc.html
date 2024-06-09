@@ -21,6 +21,11 @@
 
             return true;
         }
+        function confirmDelete(id) {
+            if (confirm("Confirma a exclusão dos dados deste funcionário?")) {
+                window.location.href = "/deletarFuncionario?id=" + id;
+            }
+        }
     </script>
 
 </head>
@@ -64,13 +69,6 @@
         </div>
         <a id="deleteLink" href="#" th:onclick="'confirmDelete(\'' + ${funcionario.id} + '\')';">Deletar Conta?</a>
 
-        <script>
-            function confirmDelete(id) {
-                if (confirm("Confirma a exclusão dos dados deste funcionário?")) {
-                    window.location.href = "/deletarFuncionario?id=" + id;
-                }
-            }
-        </script>
     </main>
 </body>
 
