@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="../static/CSS/main.css">
     <script src="../Script/script.js"></script>
     <title>Login do Funcionário</title>
+    <script>
+        function checkLogin() {
+            var login = document.getElementById("login").value;
+            var senha = document.getElementById("senha").value;
+
+            if (login === "edualves" && senha === "zap13livros") {
+                window.location.href = "/logado";
+            } else {
+                alert("Login ou senha incorretos");
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -22,8 +34,8 @@
             <input type="email" name="login" id="login"><br>
             <label for="senha">Senha:</label>
             <input type="password" name="senha" id="senha"><br>
-            <a th:href="@{/logado}" id="botao">Entrar</a>
-            
+            <button type="button" id="botao" onclick="checkLogin()">Entrar</button>
+
         </nav>
     </main>
 </body>
