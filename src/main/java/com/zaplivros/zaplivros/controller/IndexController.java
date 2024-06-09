@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zaplivros.zaplivros.model.Funcionario;
 import com.zaplivros.zaplivros.model.FuncionarioService;
@@ -98,8 +97,9 @@ public class IndexController {
     }
 
     @PostMapping("/deletar/{id}")
-    public String deletar(@RequestParam("id") int id) {
-        funcionarioService.deletarFuncionario(id);
+    public String deletar(@PathVariable("id") int id) {
+        FuncionarioService fs = context.getBean(FuncionarioService.class);
+        fs.deletarFuncionario(id);
         return "redirect:/cadastroFuncionario";
     }
 }
