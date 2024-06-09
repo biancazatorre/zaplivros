@@ -66,10 +66,10 @@
                 <label for="cargo">Cargo: </label><input type="checkbox" name="cargo" th:field="*{cargo}"><br>
                 <input type="submit" id="button" value="Alterar">
             </form>
-        </div>
-        <form id="deleteForm" th:action="@{'/deletar/' + ${funcionario.id}}" method="post">
+            <form id="deleteForm" th:action="@{'/deletar/' + ${funcionario.id}}" method="post">
             <input type="button" value="Apagar" id="apagafuncionario" onclick="confirmDelete()">
         </form>
+        </div>
     </main>
 </body>
 
