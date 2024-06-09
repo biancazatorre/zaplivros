@@ -39,6 +39,11 @@ public class IndexController {
         return "logado";
     }
 
+    @GetMapping("/atualizaLivro")
+    public String atualizaLivro() {
+        return "atualizaLivro";
+    }
+
     @GetMapping("/cadastroFuncionario")
     public String listar(Model model) {
         List<Map<String, Object>> lista = funcionarioService.listarFuncionario();
@@ -49,11 +54,6 @@ public class IndexController {
     @GetMapping("/cadastroLivro")
     public String cadastroLivro() {
         return "cadastroLivro";
-    }
-
-    @GetMapping("/atualizaLivro")
-    public String atualizaLivro() {
-        return "atualizaLivro";
     }
 
     @GetMapping("/cadastrarFuncionario")
