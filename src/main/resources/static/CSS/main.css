@@ -192,8 +192,11 @@ h3{
     margin-bottom: 20px;
 }
 #direita table tbody{
-    align-items: center;
-}    
+    border-collapse: separate;
+}
+#direita table td, #direita table th{
+    padding: 0 10px 0 10px;
+}
 /*dadosfunc.html*/
 h4{
     margin: 15px 0 0 15px;
