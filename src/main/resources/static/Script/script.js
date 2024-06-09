@@ -25,3 +25,15 @@ document.querySelectorAll('.seta').forEach(function(arrow) {
         }
     });
 });
+
+function validarSenha() {
+    var senha = document.getElementById("senha").value;
+    var confirmarSenha = document.getElementById("confirmarSenha").value;
+
+    if (senha !== confirmarSenha) {
+        alert("As senhas não correspondem. Por favor, insira senhas iguais nos dois campos.");
+        return false;
+    }
+
+    return true;
+}
