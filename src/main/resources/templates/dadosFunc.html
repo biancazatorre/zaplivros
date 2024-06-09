@@ -68,7 +68,7 @@
             </form>
         </div>
         <form id="deleteForm" th:action="@{'/deletar/' + ${funcionario.id}}" method="post">
-            <input type="button" value="Apagar" onclick="confirmDelete()">
+            <input type="button" value="Apagar" id="apagafuncionario" onclick="confirmDelete()">
         </form>
     </main>
 </body>
