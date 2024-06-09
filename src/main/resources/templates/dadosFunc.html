@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="../static/CSS/main.css">
     <script src="../Script/script.js"></script>
     <title>Dados do Funcionário</title>
+    <script>
+        function validarSenha() {
+            var senha = document.getElementById("senha").value;
+            var confirmarSenha = document.getElementById("confirmarSenha").value;
+
+            if (senha !== confirmarSenha) {
+                alert("As senhas não correspondem. Por favor, insira senhas iguais nos dois campos.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
 </head>
 
 <body>
@@ -25,9 +39,9 @@
             <div id="cima">
                 <p id="usuario">Fulano</p>
                 <p id="funcao">Peão</p>
-                 <a th:href="@{/cadastroFuncionario}">
-                <p id="voltar">Voltar</p>
-            </a>
+                <a th:href="@{/cadastroFuncionario}">
+                    <p id="voltar">Voltar</p>
+                </a>
             </div>
         </div>
         <h3>Cadastrar Funcionário > Funcionario n</h3>

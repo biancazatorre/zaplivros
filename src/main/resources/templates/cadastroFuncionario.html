@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="../static/CSS/main.css">
     <script src="../Script/script.js"></script>
     <title>Cadastro de Funcionário</title>
+    <script>
+        function validarSenha() {
+            var senha = document.getElementById("senha").value;
+            var confirmarSenha = document.getElementById("confirmarSenha").value;
+
+            if (senha !== confirmarSenha) {
+                alert("As senhas não correspondem. Por favor, insira senhas iguais nos dois campos.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
 </head>
 
 <body>
