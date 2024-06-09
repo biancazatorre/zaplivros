@@ -40,14 +40,6 @@ public class IndexController {
         return "cadastroFuncionario";
     }
 
-    @GetMapping("/cadastroFuncionario")
-    public String listar(Model model){
-        List<Map<String,Object>> lista = funcionarioService.listarFuncionario();
-        model.addAttribute("lista", lista);
-        return "cadastroFuncionario";
-    }
-
-
     @GetMapping("/cadastroLivro")
     public String cadastroLivro() {
         return "cadastroLivro";
@@ -70,12 +62,12 @@ public class IndexController {
         return "redirect:/cadastroFuncionario";
     }
 
-//    @GetMapping("/listar")
-//    public String listar(Model model){
-//        List<Map<String,Object>> lista = funcionarioService.listarFuncionario();
-//        model.addAttribute("lista", lista);
-//        return "listar";
-//    }
+    @GetMapping("/listar")
+    public String listar(Model model){
+        List<Map<String,Object>> lista = funcionarioService.listarFuncionario();
+        model.addAttribute("lista", lista);
+        return "listar";
+    }
 
     @GetMapping("/editarFuncionario")
     public String editarFuncionario(@RequestParam("id") int id, Model model) {
