@@ -81,7 +81,7 @@
                             <td th:text="${fun.id}"></td>
                             <td th:text="${fun.nome}"></td>
                             <td>
-                                <a th:href="@{'atualizar/' + ${fun.id}}">✏️ Editar</a>
+                                <a th:action="@{/atualizar/'+${id}}" th:object="${funcionario}">✏️ Editar</a>
                             </td>
                         </tr>
                     </tbody>
