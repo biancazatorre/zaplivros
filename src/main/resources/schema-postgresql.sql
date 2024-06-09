@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS funcionario;
 CREATE TABLE IF NOT EXISTS funcionario (
      id serial PRIMARY KEY,
      nome  varchar(50),
