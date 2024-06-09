@@ -207,13 +207,14 @@ h1,h2 {
 
 .localizar{
     display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    
 }
 
 .img-localizar{
     width: 30%;
-    padding: 20px 0px 20px 20px;
-    margin-left: 70px;
-    margin-top: 20px;
+    border-radius: 5px;
 }
 
 /*--------FOOTER-------*/
