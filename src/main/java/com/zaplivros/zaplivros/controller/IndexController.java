@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,9 @@ public class IndexController {
 
     @Autowired
     private FuncionarioService funcionarioService;
+
+    @Autowired
+	private ApplicationContext context;
 
     @GetMapping("/")
     public String index() {
@@ -58,16 +62,16 @@ public class IndexController {
         model.addAttribute("funcionario", new Funcionario());
         return "cadastroFuncionario";
     }
-
     @PostMapping("/cadastrarFuncionario")
     public String cadastrarFuncionario(@ModelAttribute Funcionario fun) {
         funcionarioService.inserirFuncionario(fun);
         return "redirect:/cadastroFuncionario";
     }
 
-    @GetMapping("/alterarFuncionario/{id}")
-    public String alterarFuncionario(@PathVariable("id") int id, Model model) {
-        Map<String, Object> funcionario = funcionarioService.obterFuncionario(id).get(0);
+    @GetMapping("/atualizar/{id}")
+    public String atualizar(@PathVariable("id") int id, Model model) {
+        FuncionarioService fs = context.getBean(FuncionarioService.class);
+        Map<String,Object> funcionario = fs.obterFuncionario(id).get(0);
         String nome = (String) funcionario.get("nome");
         String cpf = (String) funcionario.get("cpf");
         String email = (String) funcionario.get("email");
@@ -75,12 +79,21 @@ public class IndexController {
         String senha = (String) funcionario.get("senha");
         boolean cargo = (boolean) funcionario.get("cargo");
         model.addAttribute("funcionario", new Funcionario(id, nome, cpf, email, telefone, senha, cargo));
+        model.addAttribute("nome", nome);
+        model.addAttribute("cpf", cpf);
+        model.addAttribute("email", email);
+        model.addAttribute("telefone", telefone);
+        model.addAttribute("senha", senha);
+        model.addAttribute("cargo", cargo);
         return "dadosFunc";
     }
 
-    @PostMapping("/alterarFuncionario")
-    public String alterarFuncionario(@ModelAttribute Funcionario fun) {
-        funcionarioService.alterarFuncionario(fun);
+    @PostMapping("/atualizar/{id}")
+    public String atualizar(@PathVariable("id") int id
+    , Model model
+    ,@ModelAttribute Funcionario fun) {
+        FuncionarioService fs = context.getBean(FuncionarioService.class);
+        fs.alterarFuncionario(id, fun);
         return "redirect:/cadastroFuncionario";
     }
 
