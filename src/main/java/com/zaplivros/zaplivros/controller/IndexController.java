@@ -56,18 +56,25 @@ public class IndexController {
         return "cadastroFuncionario";
     }
 
+    @GetMapping("/cadastrarFuncionario")
+    public String listar(Model model){
+        List<Map<String,Object>> lista = funcionarioService.listarFuncionario();
+        model.addAttribute("lista", lista);
+        return "cadastrarFuncionario";
+    }
+
     @PostMapping("/cadastrarFuncionario")
     public String cadastrarFuncionario(@ModelAttribute Funcionario fun){
         funcionarioService.inserirFuncionario(fun);
         return "redirect:/cadastroFuncionario";
     }
 
-    @GetMapping("/listar")
-    public String listar(Model model){
-        List<Map<String,Object>> lista = funcionarioService.listarFuncionario();
-        model.addAttribute("lista", lista);
-        return "listar";
-    }
+//    @GetMapping("/listar")
+//    public String listar(Model model){
+//        List<Map<String,Object>> lista = funcionarioService.listarFuncionario();
+//        model.addAttribute("lista", lista);
+//        return "listar";
+//    }
 
     @GetMapping("/editarFuncionario")
     public String editarFuncionario(@RequestParam("id") int id, Model model) {
