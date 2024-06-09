@@ -165,6 +165,9 @@ h3{
     align-items: center;
     margin-bottom: 5px;
 }
+#nome, #email, #telefone, #senha, #confirmarsenha{
+    width:350px;
+}
 #submit, #button, #button2, #button3, #buscalivro{
     margin-top: 15px;
     max-width: fit-content;
