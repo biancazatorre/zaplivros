@@ -13,21 +13,18 @@
         function validarSenha() {
             var senha = document.getElementById("senha").value;
             var confirmarSenha = document.getElementById("confirmarSenha").value;
-
             if (senha !== confirmarSenha) {
                 alert("As senhas não correspondem. Por favor, insira senhas iguais nos dois campos.");
                 return false;
             }
-
             return true;
         }
         function confirmDelete(id) {
             if (confirm("Confirma a exclusão dos dados deste funcionário?")) {
-                window.location.href = "/deletarFuncionario?id=" + id;
+                window.location.href = "/deletar/" + id;
             }
         }
     </script>
-
 </head>
 
 <body>
@@ -52,9 +49,10 @@
         <h3>Cadastrar Funcionário > Funcionario n</h3>
         <h4>Dados do Funcionário</h4>
         <div id="recadastro">
-            <form action="#" th:action="@{'/atualizar/' + ${funcionario.id}}" method=post th:object="${funcionario}">
+            <form onsubmit="return validarSenha()" th:action="@{'/atualizar/' + ${funcionario.id}}" method="post"
+                th:object="${funcionario}">
                 <label for="nome">Nome: </label><input type="text" name="nome" th:field="*{nome}"><br>
-                <label for="cpf">CPF: </label><input type="text" name="cpf" th:field="*{cpf}">
+                <label for="cpf">CPF: </label><input type="text" name="cpf" th:field="*{cpf}"><br>
                 <label for="email">E-mail: </label><input type="email" name="email" th:field="*{email}"><br>
                 <label for="telefone">Telefone: </label><input type="tel" name="telefone" th:field="*{telefone}"><br>
                 <label for="senha">Nova senha: </label><input type="password" name="senha" id="senha"
@@ -65,7 +63,7 @@
                 <input type="submit" id="button" value="Alterar">
             </form>
         </div>
-        <form action="#" th:action="@{'deletar/' + ${funcionario.id}}" method="post">
+        <form th:action="@{'/deletar/' + ${funcionario.id}}" method="post">
             <input type="submit" value="Apagar">
         </form>
     </main>
