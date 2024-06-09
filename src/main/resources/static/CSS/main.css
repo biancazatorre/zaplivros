@@ -177,6 +177,14 @@ h3{
     color: #f6de00;
     border-radius: 15%;
 }
+#apagafuncionario{
+    margin-top: 15px;
+    max-width: fit-content;
+    border: solid 1px #f6de00;
+    padding: 6px;
+    background-color: black;
+    color: #f6de00;
+    border-radius: 15%;
 #submit{
     display: block;
 }
