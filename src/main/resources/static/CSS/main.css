@@ -177,6 +177,9 @@ h3{
     color: #f6de00;
     border-radius: 15%;
 }
+#submit{
+    display: block;
+}
 #esquerda label input, #esquerda label select, #esquerda label textarea {
     margin-left: 10px;
 }
