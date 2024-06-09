@@ -97,8 +97,8 @@ public class IndexController {
         return "redirect:/cadastroFuncionario";
     }
 
-    @PostMapping("/deletarFuncionario")
-    public String deletarFuncionario(@RequestParam("id") int id) {
+    @PostMapping("/deletar/{id}")
+    public String deletar(@RequestParam("id") int id) {
         funcionarioService.deletarFuncionario(id);
         return "redirect:/cadastroFuncionario";
     }

@@ -65,8 +65,9 @@
                 <input type="submit" id="button" value="Alterar">
             </form>
         </div>
-        <a id="deleteLink" href="#" th:onclick="'confirmDelete(\'' + ${funcionario.id} + '\')';">Deletar Conta?</a>
-
+        <form action="#" th:action="@{'deletar/' + ${funcionario.id}}" method="post">
+            <input type="submit" value="Apagar">
+        </form>
     </main>
 </body>
 
