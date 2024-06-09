@@ -26,7 +26,7 @@
                 <p id="usuario">Fulano</p>
                 <p id="funcao">Peão</p>
             </div>
-            <a th:href="@{/cadastro}">
+            <a th:href="@{/cadastroFuncionario}">
                 <p id="voltar">Voltar</p>
             </a>
         </div>
@@ -36,15 +36,15 @@
             <form method="post" th:action="@{/alterarFuncionario}">
                 <input type="hidden" th:field="*{id}" />
                 <label for="nome">Nome:</label>
-                <input type="text" th:field="*{nome}" id="nome">
-                <label for="documento">CPF:</label>
-                <input type="text" th:field="*{cpf}" id="documento">
+                <input type="text" th:field="*{nome}" th:value="*{nome}" id="nome">
+                <label for="cpf">CPF:</label>
+                <input type="text" th:field="*{cpf}" th:value="*{cpf}" id="cpf">
                 <label for="email">E-mail:</label>
-                <input type="email" th:field="*{email}" id="email">
-                <label for="fone">Telefone:</label>
-                <input type="tel" th:field="*{telefone}" id="fone">
+                <input type="email" th:field="*{email}" th:value="*{email}" id="email">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" th:field="*{telefone}" th:value="*{telefone}" id="telefone">
                 <label for="senha">Senha:</label>
-                <input type="password" th:field="*{senha}" id="senha">
+                <input type="password" th:field="*{senha}" th:value="*{senha}" id="senha">
                 <input type="submit" id="button" value="Atualizar">
             </form>
         </div>
@@ -57,6 +57,7 @@
                 }
             }
         </script>
+    </main>
 </body>
 
 </html>

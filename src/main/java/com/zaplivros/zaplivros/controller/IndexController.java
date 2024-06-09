@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +16,6 @@ import com.zaplivros.zaplivros.model.Funcionario;
 import com.zaplivros.zaplivros.model.FuncionarioService;
 
 @Controller
-@ComponentScan("com.zaplivros.zaplivros.model")
 public class IndexController {
 
     @Autowired
@@ -80,9 +78,9 @@ public class IndexController {
         return "dadosFunc";
     }
 
-    @PostMapping("/alterarFuncionario/{id}")
-    public String alterarFuncionario(@PathVariable("id") int id, @ModelAttribute Funcionario fun) {
-        funcionarioService.alterarFuncionario(id, fun);
+    @PostMapping("/alterarFuncionario")
+    public String alterarFuncionario(@ModelAttribute Funcionario fun) {
+        funcionarioService.alterarFuncionario(fun);
         return "redirect:/cadastroFuncionario";
     }
 

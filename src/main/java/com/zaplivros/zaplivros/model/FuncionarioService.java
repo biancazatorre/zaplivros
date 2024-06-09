@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class FuncionarioService {
 
@@ -20,16 +19,16 @@ public class FuncionarioService {
     public List<Map<String, Object>> listarFuncionario() {
         return cdao.listarFuncionario();
     }
-	public List<Map<String, Object>> obterFuncionario(int id){
-		return cdao.obterFuncionario(id);
-	}
 
-    public void alterarFuncionario(int id, Funcionario fun) {
-        cdao.alterarFuncionario(id, fun);
+    public List<Map<String, Object>> obterFuncionario(int id) {
+        return cdao.obterFuncionario(id);
+    }
+
+    public void alterarFuncionario(Funcionario fun) {
+        cdao.alterarFuncionario(fun.getId(), fun);
     }
 
     public void deletarFuncionario(int id) {
         cdao.deletarFuncionario(id);
     }
-
 }
