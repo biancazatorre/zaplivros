@@ -8,7 +8,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" href="../static/imagens/icon.png">
     <link rel="stylesheet" href="../static/CSS/styles.css">
-    <script src="../Script/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('botao').addEventListener('click', function() {
+                const busca = document.getElementById('busca').value.toLowerCase();
+                const livros = document.querySelectorAll('.livro');
+
+                let encontrado = false;
+
+                livros.forEach(livro => {
+                    const titulo = livro.querySelector('p b').textContent.toLowerCase();
+                    if (titulo.includes(busca)) {
+                        livro.scrollIntoView({ behavior: 'smooth' });
+                        encontrado = true;
+                    }
+                });
+
+                if (!encontrado) {
+                    alert('Livro não encontrado.');
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
