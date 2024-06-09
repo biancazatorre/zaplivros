@@ -52,8 +52,7 @@
         <h3>Cadastrar Funcionário > Funcionario n</h3>
         <h4>Dados do Funcionário</h4>
         <div id="recadastro">
-            <form onsubmit="return validarSenha();" method=post action="#" th:action="@{/atualizar/'+${id}}"
-                th:object="${funcionario}">
+            <form onsubmit="return validarSenha();" method="post" th:action="@{'/atualizar/' + ${funcionario.id}}">
                 <label for="nome">Nome: </label><input type="text" name="nome" th:field="*{nome}"><br>
                 <label for="cpf">CPF: </label><input type="text" name="cpf" th:field="*{cpf}">
                 <label for="email">E-mail: </label><input type="email" name="email" th:field="*{email}"><br>
