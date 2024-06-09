@@ -205,11 +205,20 @@ h1,h2 {
     display: block;
 }
 
+.localizar{
+    display: flex;
+}
 
+.img-localizar{
+    width: 30%;
+    padding: 20px 0px 20px 20px;
+    margin-left: 70px;
+    margin-top: 20px;
+}
 
 /*--------FOOTER-------*/
 footer {
-    background-color: #222;
+    background-color: #000000;
     color: #fff;
     padding: 20px;
     text-align: center;
