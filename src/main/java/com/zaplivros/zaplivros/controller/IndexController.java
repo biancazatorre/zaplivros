@@ -35,8 +35,15 @@ public class IndexController {
         return "logado";
     }
 
+//    @GetMapping("/cadastroFuncionario")
+//    public String cadastroFuncionario() {
+//        return "cadastroFuncionario";
+//    }
+
     @GetMapping("/cadastroFuncionario")
-    public String cadastroFuncionario() {
+    public String listar(Model model){
+        List<Map<String,Object>> lista = funcionarioService.listarFuncionario();
+        model.addAttribute("lista", lista);
         return "cadastroFuncionario";
     }
 
@@ -54,13 +61,6 @@ public class IndexController {
     public String cadastrarFuncionario(Model model) {
         model.addAttribute("funcionario", new Funcionario());
         return "cadastroFuncionario";
-    }
-
-    @GetMapping("/cadastrarFuncionario")
-    public String listar(Model model){
-        List<Map<String,Object>> lista = funcionarioService.listarFuncionario();
-        model.addAttribute("lista", lista);
-        return "cadastrarFuncionario";
     }
 
     @PostMapping("/cadastrarFuncionario")
