@@ -190,6 +190,9 @@ h3{
     align-items: center;
     margin-bottom: 20px;
 }
+#direita table tbody{
+    align-items: center;
+}    
 /*dadosfunc.html*/
 h4{
     margin: 15px 0 0 15px;
