@@ -4,6 +4,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/*-------HEADER-----*/
 header {
     background-color: #000000;
     color: #fff;
@@ -14,7 +15,45 @@ header {
     
 }
 
+#logo {
+    margin-left: 300px;
+    width: 30%;
+    height: auto;
+}
 
+
+#busca {
+    width: 300px;
+    padding: 8px;
+    margin-right: 5px; /* Espaçamento entre o input e o botão */  
+}
+
+#botao{
+    color: black ;
+    background-color: #f6de00;
+    width: 25%;
+    padding: 8px;
+    border-radius: 5px;
+    
+}
+
+#botao:hover{
+    color: #f6de00;
+    background-color: #000000;
+    border-color: #f6de00;
+}
+
+#buscar {
+    margin-left: 100px;
+    
+    /* Move o div buscar para a direita */
+    display: flex;
+    align-items: center;
+    /* Centraliza verticalmente */
+}
+
+
+/*---------NAV-------*/
 nav.menu-lateral{
     width: 100px;
     height: 100%;
@@ -98,80 +137,42 @@ ul li.item-menu a .icon > i{
 height: 280px;
 }
 
+
+
+/*---------MAIN-------*/
+
 main {
     margin-left: 320px;
     /* Largura do nav + espaço de margem */
     padding: 20px;
 }
 
-#logo {
-    margin-left: 300px;
-    width: 30%;
-    height: auto;
-}
-
-
-#busca {
-    width: 300px;
-    padding: 8px;
-    margin-right: 5px; /* Espaçamento entre o input e o botão */  
-}
-
-#botao{
-    color: black ;
-    background-color: #f6de00;
-    width: 25%;
-    padding: 8px;
-    border-radius: 5px;
-    
-}
-
-#botao:hover{
-    color: #f6de00;
-    background-color: #000000;
-    border-color: #f6de00;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    /* Centraliza verticalmente */
-}
-
-#buscar {
-    margin-left: 100px;
-    
-    /* Move o div buscar para a direita */
-    display: flex;
-    align-items: center;
-    /* Centraliza verticalmente */
-}
 
 h1,h2 {
     text-align: center;
 }
 
-li a {
-    text-decoration: none;
-    color: #000000;
+.home p{
+    text-align: center;
 }
-
-li a:hover {
-    color: purple;
-    text-decoration: underline;
-}
-
-li {
-    margin-bottom: 5px;
-}
-
-
 #capa{
     width: 100%;
-    margin-left: 10px;
+    padding: 20px 0px 20px 0px;
+}
+.img-banca{
+    border-style: solid;
+    border-color: #f6de00;
+    border-width: 5px;
+    border-radius: 5px;
+    
 }
 .linhalivro {
     display: flex;
+}
+
+.descricao{
+    display: flex;
+    padding: 20px 0px 20px 0px;
 }
 
 .livro {
@@ -190,12 +191,6 @@ li {
     width: 80%;
 }
 
-footer {
-    background-color: #222;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
 .sinopse {
     display: none;
     bottom: 0;
@@ -209,3 +204,14 @@ footer {
 .livro:hover .sinopse {
     display: block;
 }
+
+
+
+/*--------FOOTER-------*/
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
