@@ -195,7 +195,7 @@ h3{
     border-collapse: separate;
 }
 #direita table td, #direita table th{
-    padding: 10px;
+    padding: 0 10px 0 10px;
 }
 /*dadosfunc.html*/
 h4{
