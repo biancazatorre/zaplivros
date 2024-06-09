@@ -55,7 +55,6 @@
             <form onsubmit="return validarSenha();" method=post action="#" th:action="@{/atualizar/'+${id}}"
                 th:object="${funcionario}">
                 <label for="nome">Nome: </label><input type="text" name="nome" th:field="*{nome}"><br>
-                <label for="cargo">Cargo: </label><input type="checkbox" name="cargo" th:field="*{cargo}"><br>
                 <label for="cpf">CPF: </label><input type="text" name="cpf" th:field="*{cpf}">
                 <label for="email">E-mail: </label><input type="email" name="email" th:field="*{email}"><br>
                 <label for="telefone">Telefone: </label><input type="tel" name="telefone" th:field="*{telefone}"><br>
@@ -63,7 +62,7 @@
                     th:field="*{senha}"><br>
                 <label for="confirmarSenha">Confirma senha: </label><input type="password" name="confirmarSenha"
                     id="confirmarSenha"><br>
-
+                <label for="cargo">Cargo: </label><input type="checkbox" name="cargo" th:field="*{cargo}"><br>
                 <input type="submit" id="button" value="Alterar">
             </form>
         </div>
